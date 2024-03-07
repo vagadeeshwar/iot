@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smart Entry Exit System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+Knujsl7/1L_dstPt3HV5HzF6Gvk/e3s5p1it5I5G5e5iJ6" crossorigin="anonymous">
+    <style>
+        body {
+            background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+
+        td,
+        th {
+            padding-bottom: 15px;
+        }
+
+        html {
+            height: 100%;
+        }
+
+        .container {
+            margin-top: 50px;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        table {
+            padding: 20px;
+        }
+
+        button {
+            padding: 8px;
+            border-radius: 8px;
+            border: none;
+            transition: 0.1s linear all;
+        }
+
+        button:hover {
+            transform: scale(1.1);
+            outline: 1px solid black;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Customer Parameters</h1>
+        <table class="table table-striped table-bordered" id="telemetryTable">
+            <thead>
+                <tr>
+                    <th scope="col">Parameter</th>
+                    <th scope="col">Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Current</td>
+                    <td id="currentValue">-</td>
+                </tr>
+                <tr>
+                    <td>Allowed</td>
+                    <td id="allowedValue">-</td>
+                </tr>
+            </tbody>
+        </table>
+        <!-- <input type="number" placeholder="New Allowed Value">
+        <button>Change</button> -->
+    </div>
+
+    <!-- index.js is the serverside script -->
+    <!-- Client Side Script -->
+    <script src="/socket.io/socket.io.js"></script>
+    <!-- The above is like an import statement but using script tag -->
+    <!-- We can do the same down below using normal import statements inside the script tags -->
+    <!-- By default, the Socket.IO server exposes a client bundle at /socket.io/socket.io.js. -->
+    <script>
+        const socket = io();
+        const currentValueElement = document.getElementById('currentValue');
+        const allowedValueElement = document.getElementById('allowedValue');
+
+
+        socket.on('devicetocloud-telemetry', (data) => {
+            //if (data.current) {
+            currentValueElement.innerText = data.current;
+            //}
+            //if (data.allowed) {
+            allowedValueElement.innerText = data.allowed;
+            //}
+        });
+
+        const inp = document.querySelector('input');
+
+        document.querySelector('button').addEventListener('click', () => {
+            socket.emit("cloudtodevice-telemetry", inp.value);
+            inp.value = "";
+            console.log("Emitted message from client to server");
+        })
+
+    </script>
+</body>
+
+</html>

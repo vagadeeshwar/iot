@@ -1,0 +1,157 @@
+# Compiled source #
+###################
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Packages #
+############
+# It's better to exclude the package directories as they can be installed with a package manager
+**/node_modules/
+**/bower_components/
+**/vendor/
+
+# Logs and databases #
+######################
+*.log
+*.sql
+*.sqlite
+
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDEs and editors #
+####################
+#.idea/
+*.swp
+*.swo
+*~
+*.sublime*
+*.vscode*
+*.atom*
+*.jmc/
+nbproject/
+*.iml
+*.ipr
+*.iws
+.idea/
+.vscode/
+*.esproj
+*.tmproj
+*.bsp
+
+# build outputs #
+#################
+/dist/
+/tmp/
+/out/
+/build/
+/target/
+# Various build directories
+bin/
+obj/
+Release/
+Debug/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Project configs #
+###################
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Dependencies #
+################
+bower_components
+.jekyll-metadata
+/vendor/
+# Bundler dependency directory
+.ruby-version
+.ruby-gemset
+
+# Misc #
+#######
+*.sass-cache
+connect.lock
+coverage/
+lib-cov
+*.seed
+*.pid
+*.pid.lock
+pids
+*.seed
+*.log
+*.csv
+*.dat
+*.out
+*.pid
+*.tgz
+*.log
+*.tmp
+npm-debug.log
+yarn-error.log
+yarn-debug.log
+*.gem
+
+# Certificates #
+################
+*.cert
+*.key
+*.pem
+*.crt
+*.csr
+.swp
+*~
+._*
+
+# Python #
+#########
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C++ #
+######
+*.sdf
+*.suo
+*.tlog
+*.user
+*.userosscache
+*.aps
+*.pch
+*.vspscc
+*.vssscc
+*.sln.docstates
+
+# Java #
+#######
+*.class
+*.jar
+*.war
+*.ear
+*.nar
+*.zip
+*.tar.gz
+*.rar
+
+# Logs and databases #
+######################
+*.log
+*.sql
+*.sqlite
+
